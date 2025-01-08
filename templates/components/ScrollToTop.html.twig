@@ -1,0 +1,17 @@
+<div {{ stimulus_controller('interface') }}>
+    <button class="fixed bottom-0 right-0 z-50 flex items-center mb-6 mr-8 space-x-2 sm:space-x-4 hidden"
+            data-action="interface#scrollToTop"
+            id="scroll-to-top"
+    >
+        <span class="transition duration-500 transform hover:scale-110 rounded-full cursor-pointer flex p-2 bg-indigo-500 hover:bg-indigo-600 text-white items-center hover:shadow-sm border-none ring-none outline-none"
+              data-action="scroll@window->interface#toggleScrollToTop"
+        >
+            <svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-chevron-up">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </span>
+    </button>
+</div>

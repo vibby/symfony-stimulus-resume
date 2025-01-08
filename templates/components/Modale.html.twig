@@ -1,0 +1,36 @@
+<div class="hidden font-general-regular fixed inset-0 z-30" aria-modal="true" id="modal-form-hire">
+    <div class="bg-filter bg-black bg-opacity-50 fixed inset-0 w-full h-full z-20"
+         data-action="click->{{ closeAction }}"
+    ></div>
+    <main class="flex flex-col items-center justify-center h-full w-full">
+        <div class="modal-wrapper flex items-center z-30">
+            <div class="modal max-w-md mx-5 xl:max-w-xl lg:max-w-xl md:max-w-xl bg-secondary-light dark:bg-primary-dark max-h-screen shadow-lg flex-row rounded-lg relative">
+                <div class="modal-header flex justify-between gap-10 p-5 border-b border-ternary-light dark:border-ternary-dark">
+                    <h5 class="text-primary-dark dark:text-primary-light text-xl">
+                        {{ title }}
+                    </h5>
+                    <button class="px-4 text-primary-dark dark:text-primary-light"
+                            data-action="{{ closeAction }}"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="feather feather-x w-8 sm:w-12">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body p-5 w-full h-full">
+                    {% block content %}{% endblock %}
+                </div>
+                <div class="modal-footer mt-2 sm:mt-0 py-5 px-8 border0-t text-right">
+                    <button class="px-4 sm:px-6 py-2 bg-gray-600 text-primary-light hover:bg-ternary-dark dark:bg-gray-200 dark:text-secondary-dark dark:hover:bg-primary-light rounded-md focus:ring-1 focus:ring-indigo-900 duration-500"
+                            aria-label="Fermer la modale"
+                            data-action="click->{{ closeAction }}">Fermer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
