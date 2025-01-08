@@ -7,18 +7,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class HomeController extends AbstractController
+class ResumeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/resume', name: 'app_resume')]
     public function index(): Response
     {
-        $contactForm = $this->createForm(ContactType::class, null, [
-            'action' => $this->generateUrl('app_contact'),
-        ]);
-
-        return $this->render('page/home.html.twig', [
+        return $this->render('page/resume.html.twig', [
             'controller_name' => 'HomeController',
-            'contact_form' => $contactForm,
         ]);
     }
 }

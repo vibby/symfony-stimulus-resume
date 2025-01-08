@@ -1,5 +1,5 @@
 <div {{ stimulus_controller('modal-form-hire') }}>
     <twig:Modale title="Quel est votre projet ?" closeAction="modal-form-hire#closeModal">
-        {{ include('layouts/partials/form_hire.html.twig') }}
+        {{ include('layouts/partials/form_hire.html.twig', {'contact_form': contactForm()})  }}
     </twig:Modale>
 </div>

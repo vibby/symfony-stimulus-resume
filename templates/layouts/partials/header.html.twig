@@ -5,21 +5,41 @@
     <nav class="text-xl text-right md:text-left hidden font-general-regular m-0 md:flex gap-6 flex-col md:flex-row shadow-lg sm:shadow-none order-7 md:order-2 basis-full grow md:basis-auto dark:md:bg-transparent md:bg-transparent px-4 md:p-0 bg-primary-light dark:bg-ternary-dark shadow-sm rounded-xl"
          id="menu">
         <a href="/#projects"
-           class="block text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light py-2 border-b border-secondary-light dark:border-primary-dark md:border-0"
+           class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark md:border-0"
            aria-label="Projets"> Projets </a>
-        <a href="/about"
-           class="block text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light py-2 border-b border-secondary-light dark:border-primary-dark"
+        <a href="/resume"
+           class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark"
            aria-label="Qui suis-je"> Qui suis-je </a>
         <a href="/articles"
-           class="block text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light py-2 border-b border-secondary-light dark:border-primary-dark"
+           class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark"
            aria-label="Articles"> Articles </a>
         <a href="/contact"
-           class="block md:hidden lg:block text-primary-dark dark:text-ternary-light hover:text-secondary-dark dark:hover:text-secondary-light py-2"
+           class="block md:hidden lg:block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2"
            aria-label="Contact"> Contact </a>
     </nav>
     <div class="order-3 font-general-medium sm:block" {{ stimulus_controller('modal-form-hire') }}>
-        <twig:Button label="Embauchez-moi" action="modal-form-hire#openModal" />
+        <twig:Button label="Embauchez-moi" action="modal-form-hire#openModal"/>
     </div>
-    <twig:DarkModeToggle class="hidden sm:block order-4" />
-    <twig:MenuToggle class=" md:hidden order-5" />
+    <div {{ stimulus_controller('interface') }} class="order-4 hidden sm:block">
+        <twig:ButtonIcon action="interface#toggleDarkMode" class="p-2" label="dark / light mode">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-7 w-7 mt-1 fill-current text-secondary-dark dark:text-ternary-light"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor"
+            >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+            </svg>
+        </twig:ButtonIcon>
+    </div>
+    <div {{ stimulus_controller('menu') }} class="order-5 md:hidden">
+        <twig:ButtonIcon action="menu#togglePhoneMenu" class="p-2" label="Show menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                 class="h-7 w-7 mt-1 fill-current text-secondary-dark dark:text-ternary-light">
+                <path fill-rule="evenodd"
+                      d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+            </svg>
+        </twig:ButtonIcon>
+    </div>
 </header>

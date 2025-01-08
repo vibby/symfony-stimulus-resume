@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block main %}
+    <div class="flex flex-col md:flex-row w-full gap-8 mt-12">
+        <article class="grow">
+            <twig:Title>
+                Envoyez-moi un message
+            </twig:Title>
+            {% include 'layouts/partials/form_hire.html.twig' %}
+            {% if contact|default(false) %}
+                {% block success_stream %}
+                    <turbo-stream action="replace" targets="[data-id=form_hire_footer]">
+                        <template>
+                            <twig:Alert>
+                                Merci {{ contact.name }}. Votre message a bien été envoyé.
+                                <twig:block name="title">
+                                    Succès !
+                                </twig:block>
+                            </twig:Alert>
+                        </template>
+                    </turbo-stream>
+                {% endblock %}
+            {% endif %}
+        </article>
+        <article class="grow">
+            <twig:Title class="sr-only">
+                Autres infos de contact
+            </twig:Title>
+            <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
+                <div class="flex flex-col pb-6">
+                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Identité</dt>
+                    <dd class="text-lg font-semibold">Vincent Beauvivre</dd>
+                </div>
+                <div class="flex flex-col pb-6">
+                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Localisation</dt>
+                    <dd class="text-lg font-semibold">Nantes, France</dd>
+                </div>
+                <div class="flex flex-col pb-6">
+                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Modalités</dt>
+                    <dd class="text-lg font-semibold">Distanciel ou présentiel</dd>
+                </div>
+                <div class="flex flex-col pb-6">
+                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Mobilité</dt>
+                    <dd class="text-lg font-semibold">
+                        <ul>
+                            <li>Courte période : France entière</li>
+                            <li>Longue période : Loire-Atlantique</li>
+                        </ul>
+                    </dd>
+                </div>
+                <div class="flex flex-col pb-6">
+                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Statuts possibles</dt>
+                    <dd class="text-lg font-semibold">Employeriat, Contrat freelance</dd>
+                </div>
+                <div class="flex flex-col pb-6">
+                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Siret</dt>
+                    <dd class="text-lg font-semibold">938400256</dd>
+                </div>
+            </dl>
+        </article>
+    </div>
+
+{% endblock %}

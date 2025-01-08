@@ -6,4 +6,8 @@ export default class extends Controller {
     closeModal(event) {
         document.getElementById('modal-form-hire').classList.add('hidden');
     }
+    submitForm(event) {
+        event.preventDefault();
+        document.getElementById('modal-form-hire').classList.add('hidden');
+    }
 }

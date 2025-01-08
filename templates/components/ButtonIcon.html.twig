@@ -1,0 +1,14 @@
+{% if href|default(false) %}
+    <a href="{{ href }}" target="__blank"
+{% else %}
+    <button data-action="{{ action|default('') }}"
+{% endif %}
+   class="{{ class|default('') }} block p-2 duration-500 rounded-lg shadow-sm cursor-pointer hover:text-indigo-500 dark:hover:text-indigo-400 bg-gray-50 dark:bg-ternary-dark hover:bg-gray-100 dark:hover:bg-gray-600"
+>
+    {% block content %}{% endblock %}
+    <span class="sr-only">{{ label }}</span>
+{% if href|default(false) %}
+    </a>
+{% else %}
+    </button>
+{% endif %}
