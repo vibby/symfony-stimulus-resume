@@ -1,14 +1,390 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}CV{% endblock %}
 
 {% block main %}
-    <div class="flex flex-col md:flex-row w-full gap-8 mt-12">
-        <article class="grow">
-            <twig:Title>
+<div class="flex flex-col md:flex-row print:flex-row w-full gap-8 mt-12">
+    <div class="grow md:w-1/3 flex flex-col gap-8">
+        <div>
+            <twig:Title class="md:text-5xl">
                 Vincent Beauvivre
             </twig:Title>
-        </article>
+            <img src="{{ asset('images/tete.jpg') }}" alt=""
+                 class="rounded-full w-full h-auto contrast-150 print:w-32"/>
+        </div>
+        <div class="hidden print:block">
+            <twig:Title level="3">
+                Contact
+            </twig:Title>
+            <twig:ListGroup>
+                <twig:ListItem>
+                    vincent@beauvivre.fr
+                </twig:ListItem>
+                <twig:ListItem>
+                    06.05.38.95.40
+                </twig:ListItem>
+            </twig:ListGroup>
+        </div>
+        <div>
+            <twig:Title level="3">
+                Je parle !
+            </twig:Title>
+            <twig:ListGroup>
+                <twig:ListItem>
+                    Français
+                </twig:ListItem>
+                <twig:ListItem>
+                    Anglais − TOEIC 790
+                </twig:ListItem>
+                <twig:ListItem>
+                    Allemand − Intermédiaire
+                </twig:ListItem>
+                <twig:ListItem>
+                    💕 communication non-violente
+                </twig:ListItem>
+            </twig:ListGroup>
+        </div>
+        <div>
+            <twig:Title level="3">
+                Conférences et communications
+            </twig:Title>
+            <twig:ListGroup>
+                <twig:ListItem>
+                    Allumeddd : illustration du DDD par l’exemple — Meetup AFUP
+                </twig:ListItem>
+                <twig:ListItem>
+                    Le royaume d’hachetétépé : vulgarisation des usages du protocole HTTP — Meetup AFUP
+                </twig:ListItem>
+                <twig:ListItem>
+                    <em>L’amour en héritage</em> — AFUP Day 2020 —
+                    <a href="https://www.youtube.com/watch?v=ctIAod8da7Y" class="print:hidden">Voir la vidéo</a>
+                </twig:ListItem>
+                <twig:ListItem>
+                    Livre blanc «Du Legacy au DDD» —
+                    <a href="share/" class="print:hidden">Télécharger</a>
+                </twig:ListItem>
+            </twig:ListGroup>
+        </div>
+
+        <div>
+            <twig:Title level="3">
+                Outils et langages
+            </twig:Title>
+            <twig:ListGroup>
+                <twig:ListItem>
+                    <strong>Backend</strong> HTTP, PHP, Symfony, Api Platform, Mercure, RabbitMQ, OAuth, LDAP
+                </twig:ListItem>
+                <twig:ListItem>
+                    <strong>Données</strong> PostGreSql, Mysql, Doctrine, Elasticsearch
+                </twig:ListItem>
+                <twig:ListItem>
+                    <strong>Intégration</strong> Intégration HTML 5 CSS 3, sémantique, accessibilité, responsive
+                </twig:ListItem>
+                <twig:ListItem>
+                    <strong>Frontend</strong> Javascript vanilla, VueJs, Tailwind, Bootstrap, Webpack, AssetMapper
+                </twig:ListItem>
+                <twig:ListItem>
+                    <strong>Intégration continue</strong> Docker, Ansible, Capistrano, Deployer, Gitlab CI
+                </twig:ListItem>
+                <twig:ListItem>
+                    <strong>Solutions</strong> Sylius, Akeneo, Drupal, Wordpress, NextCloud
+                </twig:ListItem>
+            </twig:ListGroup>
+        </div>
+
+        <div>
+            <twig:Title level="3">
+                Intérêts
+            </twig:Title>
+            <twig:ListGroup>
+                <twig:ListItem>
+                    Sécurité
+                </twig:ListItem>
+                <twig:ListItem>
+                    Numérique responsable
+                </twig:ListItem>
+                <twig:ListItem>
+                    Méthode Scrum
+                </twig:ListItem>
+                <twig:ListItem>
+                    Domain Driven Design
+                </twig:ListItem>
+                <twig:ListItem>
+                    S.O.L.I.D.
+                </twig:ListItem>
+                <twig:ListItem>
+                    Sensibilisation à l’ergonomie
+                </twig:ListItem>
+            </twig:ListGroup>
+        </div>
+
+        <div class="hidden print:block">
+            <twig:Title level="3">
+                Formation
+            </twig:Title>
+            <twig:ListGroup>
+                <twig:ListItem>
+                    <strong>2020</strong> Certiﬁcation Développeur Akeneo 3.2
+                </twig:ListItem>
+                <twig:ListItem>
+                    <strong>2009</strong> Formation Symfony KnpLabs
+                </twig:ListItem>
+                <twig:ListItem>
+                    <strong>2000</strong> DUT Génie Méca Productique
+                </twig:ListItem>
+            </twig:ListGroup>
+        </div>
+        <div class="hidden print:block">
+            <twig:Title level="3">
+                Et aussi …
+            </twig:Title>
+            <twig:ListGroup>
+                <twig:ListItem>
+                    Théâtre d’improvisation
+                </twig:ListItem>
+                <twig:ListItem>
+                    Réalisations de courts métrages
+                </twig:ListItem>
+            </twig:ListGroup>
+        </div>
+    </div>
+    <div class="grow md:w-2/3">
+        <div class="mb-8 print:text-sm">
+            <twig:Title level="3">
+                Développeur web full-stack senior
+            </twig:Title>
+            <p class="my-2">
+                Expert en PHP que je pratique depuis 25 ans, j’aime identifier et appliquer les bonnes méthodos pour
+                chaque projet : MVC, CQRS, Event Sourcing, DDD, SOLID, Hexagonal …
+            </p>
+            <p class="my-2">
+                Je pratique également un front-end de qualité : sémantique, accessibilité, numérique responsable … avec
+                une grande variété d’outils, de <a href="https://tailwindcss.com">Tailwind</a> à <a
+                        href="https://vuejs.org">VueJs</a>.
+            </p>
+        </div>
+        <div class="mb-8">
+            <twig:Title level="3">
+                Objectif
+            </twig:Title>
+            <p class="my-2">
+                Mettre mon expertise au service de nouveaux clients ou employeurs pour
+                encadrer ou développer des solutions web robustes et qualitatives
+            </p>
+        </div>
+        <div class="mb-8">
+            <twig:Title level="3">
+                Parcours
+            </twig:Title>
+            <twig:TimelineGroup>
+                <twig:TimelineItem title="Troopers Web Republic" image="images/company/troopers.png" date="2021-2024">
+                    Agence web orientée expertises techniques
+                </twig:TimelineItem>
+                <twig:TimelineItem title="Dixneuf" date="2024" href="https://www.dixneuf.com/">
+                    <twig:TableGroup>
+                        <twig:TableBody>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Contexte</twig:TableRowHead>
+                                <twig:TableCell>Portail de centralisation de l’activité commerciale et industrielle
+                                </twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Outils</twig:TableRowHead>
+                                <twig:TableCell>Symfony, API Platform, EasyAdmin, Serveur SSO</twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Tâches</twig:TableRowHead>
+                                <twig:TableCell>Développement backend, communication API entre plusieurs outils
+                                </twig:TableCell>
+                            </twig:TableRow>
+                        </twig:TableBody>
+                    </twig:TableGroup>
+                </twig:TimelineItem>
+                <twig:TimelineItem title="Proximum 365" date="2023" href="https://proximum365.com/fr/">
+                    <twig:TableGroup>
+                        <twig:TableBody>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Contexte</twig:TableRowHead>
+                                <twig:TableCell>Réseau social professionnel dédié par domaine d’activité
+                                </twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Outils</twig:TableRowHead>
+                                <twig:TableCell>Symfony, API Platform, React, Intégration continue</twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Tâches</twig:TableRowHead>
+                                <twig:TableCell>Développement backend, architecture, encadrement technique
+                                </twig:TableCell>
+                            </twig:TableRow>
+                        </twig:TableBody>
+                    </twig:TableGroup>
+                </twig:TimelineItem>
+                <twig:TimelineItem title="Progicar" date="2022" href="https://www.progicar.fr/">
+                    <twig:TableGroup>
+                        <twig:TableBody>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Contexte</twig:TableRowHead>
+                                <twig:TableCell>Application de gestion industrielle d’usines de remarket automobile
+                                </twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Outils</twig:TableRowHead>
+                                <twig:TableCell>Symfony, API Platform, VueJs, DDD, Intégration continue</twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Tâches</twig:TableRowHead>
+                                <twig:TableCell>Développement fullstack, maintenance, conseil technique</twig:TableCell>
+                            </twig:TableRow>
+                        </twig:TableBody>
+                    </twig:TableGroup>
+                </twig:TimelineItem>
+            </twig:TimelineGroup>
+
+            <twig:TimelineGroup>
+                <twig:TimelineItem title="Smile" image="images/company/smile.png" date="2017-2021">
+                    ESN impliquée dans le logiciel libre
+                </twig:TimelineItem>
+                <twig:TimelineItem title="piècesetpneus.com" date="2021" href="https://www.piecesetpneus.com">
+                    <twig:TableGroup>
+                        <twig:TableBody>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Contexte</twig:TableRowHead>
+                                <twig:TableCell>Plateforme de distribution de pièces automobile</twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Outils</twig:TableRowHead>
+                                <twig:TableCell>Symfony, Sylius, Twig</twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Tâches</twig:TableRowHead>
+                                <twig:TableCell>Développement fullstack, Lead Technique</twig:TableCell>
+                            </twig:TableRow>
+                        </twig:TableBody>
+                    </twig:TableGroup>
+                </twig:TimelineItem>
+                <twig:TimelineItem title="Uship" date="2020" href="https://uship.fr">
+                    <twig:TableGroup>
+                        <twig:TableBody>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Contexte</twig:TableRowHead>
+                                <twig:TableCell>Intégration et personalisation d’un logiciel de catalogue de produits
+                                </twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Outils</twig:TableRowHead>
+                                <twig:TableCell>Symfony, Akeneo</twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Tâches</twig:TableRowHead>
+                                <twig:TableCell>Intégration logicielle, développement d’extensions</twig:TableCell>
+                            </twig:TableRow>
+                        </twig:TableBody>
+                    </twig:TableGroup>
+                </twig:TimelineItem>
+                <twig:TimelineItem title="Et aussi …" date="">
+                    <twig:ListGroup>
+                        <twig:ListItem>Projets Symfony</twig:ListItem>
+                        <twig:ListItem>Projets Akeneo</twig:ListItem>
+                        <twig:ListItem>Développement de modules Drupal</twig:ListItem>
+                        <twig:ListItem>Mise en place de tests Behat pour Magento 2</twig:ListItem>
+                        <twig:ListItem>Missions en régie</twig:ListItem>
+                        <twig:ListItem>Fonctions de décisionnel technique</twig:ListItem>
+                    </twig:ListGroup>
+                </twig:TimelineItem>
+            </twig:TimelineGroup>
+
+            <twig:TimelineGroup>
+                <twig:TimelineItem title="Naoned" image="images/company/naoned.png" date="2013-2016">
+                    Éditeur de logiciels dans le domaine des archives à valeur patrimoniale
+                </twig:TimelineItem>
+                <twig:TimelineItem title="Vanao" href="https://naoned.fr">
+                    <twig:TableGroup>
+                        <twig:TableBody>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Contexte</twig:TableRowHead>
+                                <twig:TableCell>Logiciel de publication d’archives en ligne</twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Outils</twig:TableRowHead>
+                                <twig:TableCell>Transition CakePHP vers Symfony, ElasticSearch avec Indexation depuis
+                                    XML, AMQP, Bootstrap, Less et Webpack
+                                </twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Tâches</twig:TableRowHead>
+                                <twig:TableCell>Lead et formation de l’équipe technique, maintenance applicative,
+                                    déploiements, études
+                                    et chiffrages techniques, architecture
+                                </twig:TableCell>
+                            </twig:TableRow>
+                            <twig:TableRow>
+                                <twig:TableRowHead>Clients</twig:TableRowHead>
+                                <twig:TableCell>
+                                    <twig:Link href="http://archives.lille.fr">Archives de lille</twig:Link>
+                                    <twig:Link href="http://archives39.fr">Archives 39</twig:Link>
+                                    …
+                                </twig:TableCell>
+                            </twig:TableRow>
+                        </twig:TableBody>
+                    </twig:TableGroup>
+                </twig:TimelineItem>
+            </twig:TimelineGroup>
+
+            <twig:TimelineGroup>
+                <twig:TimelineItem title="Le Phare" image="images/company/lephare.png" date="2012-2013" imageClass="dark:invert">
+                    Agence d’accompagnement web et usage numérique
+                    <twig:ListGroup>
+                        <twig:ListItem>Développement Symfony 2</twig:ListItem>
+                        <twig:ListItem>Intégration HTML/CSS avec Bootstrap et LESS</twig:ListItem>
+                        <twig:ListItem>Développement JS Vanilla</twig:ListItem>
+                    </twig:ListGroup>
+                </twig:TimelineItem>
+            </twig:TimelineGroup>
+
+            <twig:TimelineGroup>
+                <twig:TimelineItem title="1-ter-net" image="images/company/1ternet.png" date="2009-2012" imageClass="dark:invert">
+                    Agence web
+                    <twig:ListGroup>
+                        <twig:ListItem>Responsable développement, décision technique</twig:ListItem>
+                        <twig:ListItem>Participation aux devis et contacts clients</twig:ListItem>
+                        <twig:ListItem>Mise en place et administration des serveurs : apache, mysql, SVN, DNS …
+                        </twig:ListItem>
+                        <twig:ListItem>Technologies multiples : Wordpress, Prestashop, Magento, Symfony, Joomla, Drupal
+                            …
+                        </twig:ListItem>
+                    </twig:ListGroup>
+                </twig:TimelineItem>
+            </twig:TimelineGroup>
+
+            <twig:TimelineGroup>
+                <twig:TimelineItem title="Renault" image="images/company/renault.png" date="2004-2009">
+                    Saint Quentin en Yvelines - France<br/>
+                    <strong>Technicien polyvalent R&D</strong>
+                    <twig:ListGroup>
+                        <twig:ListItem>Participation au développement d'un outil Matlab de simulation de mouvement
+                            humain, basé sur des captures de mouvement
+                        </twig:ListItem>
+                        <twig:ListItem>Mise en relation entre les outils d'ergonomie (appliqué au véhicule automobile)
+                            et les outils de réalité virtuelle (Maya)
+                        </twig:ListItem>
+                        <twig:ListItem>Création d'une bdd anthropométrique</twig:ListItem>
+                    </twig:ListGroup>
+                </twig:TimelineItem>
+            </twig:TimelineGroup>
+
+            <twig:TimelineGroup>
+                <twig:TimelineItem title="Airbus" image="images/company/airbus.png" date="2001-2004">
+                    Bouguenais - France<br/>
+                    <strong>Programmeur machine de fabrication composite</strong>
+                    <twig:ListGroup>
+                        <twig:ListItem>Programmation de machines de travail de matériaux composites (CAO, code ISO)
+                        </twig:ListItem>
+                        <twig:ListItem>Développement d'outils de suivi, de reporting et de support</twig:ListItem>
+                    </twig:ListGroup>
+                </twig:TimelineItem>
+            </twig:TimelineGroup>
+        </div>
     </div>
 
-{% endblock %}
+    {% endblock %}

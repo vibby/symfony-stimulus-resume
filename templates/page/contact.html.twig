@@ -28,37 +28,29 @@
             <twig:Title class="sr-only">
                 Autres infos de contact
             </twig:Title>
-            <dl class="max-w-md text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                <div class="flex flex-col pb-6">
-                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Identité</dt>
-                    <dd class="text-lg font-semibold">Vincent Beauvivre</dd>
-                </div>
-                <div class="flex flex-col pb-6">
-                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Localisation</dt>
-                    <dd class="text-lg font-semibold">Nantes, France</dd>
-                </div>
-                <div class="flex flex-col pb-6">
-                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Modalités</dt>
-                    <dd class="text-lg font-semibold">Distanciel ou présentiel</dd>
-                </div>
-                <div class="flex flex-col pb-6">
-                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Mobilité</dt>
-                    <dd class="text-lg font-semibold">
-                        <ul>
-                            <li>Courte période : France entière</li>
-                            <li>Longue période : Loire-Atlantique</li>
-                        </ul>
-                    </dd>
-                </div>
-                <div class="flex flex-col pb-6">
-                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Statuts possibles</dt>
-                    <dd class="text-lg font-semibold">Employeriat, Contrat freelance</dd>
-                </div>
-                <div class="flex flex-col pb-6">
-                    <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Siret</dt>
-                    <dd class="text-lg font-semibold">938400256</dd>
-                </div>
-            </dl>
+            <twig:DefGroup>
+                <twig:DefItem title="Identité">
+                    Vincent Beauvivre
+                </twig:DefItem>
+                <twig:DefItem title="Localisation">
+                    Nantes, France
+                </twig:DefItem>
+                <twig:DefItem title="Modalité">
+                    Distanciel ou présentiel
+                </twig:DefItem>
+                <twig:DefItem title="Mobilité">
+                    <ul>
+                        <li>Courte période : France entière</li>
+                        <li>Longue période : Loire-Atlantique</li>
+                    </ul>
+                </twig:DefItem>
+                <twig:DefItem title="Statuts possibles">
+                    Employeriat, Contrat freelance
+                </twig:DefItem>
+                <twig:DefItem title="Siret">
+                    938400256
+                </twig:DefItem>
+            </twig:DefGroup>
         </article>
     </div>
 
