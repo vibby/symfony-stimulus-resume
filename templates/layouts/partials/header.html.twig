@@ -4,17 +4,17 @@
     </h1>
     <nav class="text-xl text-right md:text-left hidden font-general-regular m-0 md:flex gap-6 flex-col md:flex-row shadow-lg sm:shadow-none order-7 md:order-2 basis-full grow md:basis-auto dark:md:bg-transparent md:bg-transparent px-4 md:p-0 bg-primary-light dark:bg-ternary-dark shadow-sm rounded-xl"
          id="menu">
-        <a href="/#projects"
-           class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark md:border-0"
+        <a href="/projets"
+           class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark md:border-0 {% if app.current_route == 'app_projects' %} underline{% endif %}"
            aria-label="Projets"> Projets </a>
         <a href="/resume"
-           class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark"
+           class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark {% if app.current_route == 'app_resume' %} underline{% endif %}"
            aria-label="Qui suis-je"> Qui suis-je </a>
         <a href="/articles"
            class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark"
            aria-label="Articles"> Articles </a>
         <a href="/contact"
-           class="block md:hidden lg:block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2"
+           class="block md:hidden lg:block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 {% if app.current_route == 'app_contact' %} underline{% endif %}"
            aria-label="Contact"> Contact </a>
     </nav>
     <div class="order-3 font-general-medium sm:block" {{ stimulus_controller('modal-form-hire') }}>

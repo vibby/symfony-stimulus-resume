@@ -1,0 +1,28 @@
+<div class="ProductGrid" {{ attributes.defaults(stimulus_controller('appear')) }}>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10">
+        {% if page > 1 %}
+            <article id="item--{{ page - 1 }}-{{ per_page }}"></article>
+        {% endif %}
+        {% for project in this.projects %}
+            <twig:CardProject
+                id="item--{{ page }}-{{ loop.index }}"
+                title="{{ project.title }}"
+                date="{{ project.date }}"
+                image="{{ asset('images/project/'~project.id~'.png') }}"
+                href="{{ project.link }}"
+                category="{{ project.shortDesc }}"
+            />
+        {% endfor %}
+        {% if this.hasMore %}
+            <twig:CardProject
+                id="item--{{ page + 1 }}-1"
+                title="project"
+                image="{{ asset('images/project/empty.svg') }}"
+                category="description"
+                loadMoreTrigger="{{ true }}"
+            />
+        {% else %}
+            <div class="self-end"><div class="w-12 h-12 bg-secondary-light dark:bg-ternary-dark rounded-xl"></div></div>
+        {% endif %}
+    </div>
+</div>

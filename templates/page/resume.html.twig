@@ -3,20 +3,46 @@
 {% block title %}CV{% endblock %}
 
 {% block main %}
-<div class="flex flex-col md:flex-row print:flex-row w-full gap-8 mt-12">
-    <div class="grow md:w-1/3 flex flex-col gap-8">
-        <div>
-            <twig:Title class="md:text-5xl">
+<div class="flex flex-col md:flex-row w-full gap-8 ">
+    <div class="grow md:w-1/3 flex flex-col print:flex-row gap-8">
+        <div class="print:right">
+            <twig:Title class="text-3xl md:text-5xl">
                 Vincent Beauvivre
             </twig:Title>
             <img src="{{ asset('images/tete.jpg') }}" alt=""
-                 class="rounded-full w-full h-auto contrast-150 print:w-32"/>
+                 class="rounded-full w-full h-auto contrast-150 print:w-32  max-w-64"/>
+        </div>
+        <div class="block md:hidden">
+            <twig:Title level="3">
+                Développeur web full-stack senior
+            </twig:Title>
+            <p class="my-2">
+                Expert en PHP que je pratique depuis 25 ans, j’aime identifier et appliquer les bonnes méthodos pour
+                chaque projet : MVC, CQRS, Event Sourcing, DDD, SOLID, Hexagonal …
+            </p>
+            <p class="my-2">
+                Je pratique également un front-end de qualité : sémantique, accessibilité, numérique responsable … avec
+                une grande variété d’outils, de <a href="https://tailwindcss.com">Tailwind</a> à <a
+                        href="https://vuejs.org">VueJs</a>.
+            </p>
+        </div>
+        <div class="block md:hidden">
+            <twig:Title level="3">
+                Objectif
+            </twig:Title>
+            <p class="my-2">
+                Mettre mon expertise au service de nouveaux clients ou employeurs pour
+                encadrer ou développer des solutions web robustes et qualitatives
+            </p>
         </div>
         <div class="hidden print:block">
             <twig:Title level="3">
                 Contact
             </twig:Title>
             <twig:ListGroup>
+                <twig:ListItem>
+                    https://vibby.beauvivre.fr
+                </twig:ListItem>
                 <twig:ListItem>
                     vincent@beauvivre.fr
                 </twig:ListItem>
@@ -148,8 +174,8 @@
             </twig:ListGroup>
         </div>
     </div>
-    <div class="grow md:w-2/3">
-        <div class="mb-8 print:text-sm">
+    <div class="grow md:w-2/3 print:flex-row flex flex-col gap-8">
+        <div class="hidden md:block">
             <twig:Title level="3">
                 Développeur web full-stack senior
             </twig:Title>
@@ -163,7 +189,7 @@
                         href="https://vuejs.org">VueJs</a>.
             </p>
         </div>
-        <div class="mb-8">
+        <div class="hidden md:block">
             <twig:Title level="3">
                 Objectif
             </twig:Title>
@@ -172,7 +198,7 @@
                 encadrer ou développer des solutions web robustes et qualitatives
             </p>
         </div>
-        <div class="mb-8">
+        <div>
             <twig:Title level="3">
                 Parcours
             </twig:Title>
@@ -239,6 +265,13 @@
                         </twig:TableBody>
                     </twig:TableGroup>
                 </twig:TimelineItem>
+                <twig:TimelineItem title="Et aussi …">
+                    <twig:ListGroup>
+                        <twig:ListItem>Missions courtes d’expertise et de conseil technique</twig:ListItem>
+                        <twig:ListItem>Intégrations web de projets React</twig:ListItem>
+                        <twig:ListItem>Développement en autonomie d’un outil de no-code</twig:ListItem>
+                    </twig:ListGroup>
+                </twig:TimelineItem>
             </twig:TimelineGroup>
 
             <twig:TimelineGroup>
@@ -282,7 +315,7 @@
                         </twig:TableBody>
                     </twig:TableGroup>
                 </twig:TimelineItem>
-                <twig:TimelineItem title="Et aussi …" date="">
+                <twig:TimelineItem title="Et aussi …">
                     <twig:ListGroup>
                         <twig:ListItem>Projets Symfony</twig:ListItem>
                         <twig:ListItem>Projets Akeneo</twig:ListItem>
@@ -332,7 +365,8 @@
             </twig:TimelineGroup>
 
             <twig:TimelineGroup>
-                <twig:TimelineItem title="Le Phare" image="images/company/lephare.png" date="2012-2013" imageClass="dark:invert">
+                <twig:TimelineItem title="Le Phare" image="images/company/lephare.png" date="2012-2013"
+                                   imageClass="dark:invert">
                     Agence d’accompagnement web et usage numérique
                     <twig:ListGroup>
                         <twig:ListItem>Développement Symfony 2</twig:ListItem>
@@ -343,7 +377,8 @@
             </twig:TimelineGroup>
 
             <twig:TimelineGroup>
-                <twig:TimelineItem title="1-ter-net" image="images/company/1ternet.png" date="2009-2012" imageClass="dark:invert">
+                <twig:TimelineItem title="1-ter-net" image="images/company/1ternet.png" date="2009-2012"
+                                   imageClass="dark:invert">
                     Agence web
                     <twig:ListGroup>
                         <twig:ListItem>Responsable développement, décision technique</twig:ListItem>
@@ -358,7 +393,8 @@
             </twig:TimelineGroup>
 
             <twig:TimelineGroup>
-                <twig:TimelineItem title="Renault" image="images/company/renault.png" date="2004-2009">
+                <twig:TimelineItem title="Renault" image="images/company/renault.png" date="2004-2009"
+                                   imageClass="dark:invert">
                     Saint Quentin en Yvelines - France<br/>
                     <strong>Technicien polyvalent R&D</strong>
                     <twig:ListGroup>
@@ -374,7 +410,8 @@
             </twig:TimelineGroup>
 
             <twig:TimelineGroup>
-                <twig:TimelineItem title="Airbus" image="images/company/airbus.png" date="2001-2004">
+                <twig:TimelineItem title="Airbus" image="images/company/airbus.png" date="2001-2004"
+                                   imageClass="dark:invert">
                     Bouguenais - France<br/>
                     <strong>Programmeur machine de fabrication composite</strong>
                     <twig:ListGroup>

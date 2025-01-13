@@ -1,0 +1,47 @@
+<article class="rounded-xl shadow-lg hover:shadow-xl cursor-pointer mb-10 sm:mb-0 bg-secondary-light dark:bg-ternary-dark relative overflow-hidden"
+     id="{{ id }}"
+    {% if not loadMoreTrigger|default(false) %}
+        data-live-ignore
+    {% endif %}
+>
+    {% if href|default(false)  %}
+    <a href="{{ href }}" class="" target="_blank">
+        <div class="opacity-0 hover:opacity-100 absolute inset-0 bg-secondary-light/[.6] dark:bg-ternary-dark/[.6] transition-opacity flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                 class="h-1/2 w-1/2 inline print:hidden">
+                <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z"></path>
+            </svg>
+        </div>
+    {% endif %}
+    {% if loadMoreTrigger|default(false) %}
+        <div class="absolute inset-0 bg-secondary-light/[.6] dark:bg-ternary-dark/[.6] transition-opacity flex items-center justify-center"
+             data-appear-target="loader"
+             data-action="appear->live#action"
+             data-live-action-param="debounce(750)|more"
+        >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150">
+                <path fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" stroke-dasharray="300 385" stroke-dashoffset="0" d="M275 75c0 31-27 50-50 50-58 0-92-100-150-100-28 0-50 22-50 50s23 50 50 50c58 0 92-100 150-100 24 0 50 19 50 50Z">
+                    <animate attributeName="stroke-dashoffset" calcMode="spline" dur="2" values="685;-685" keySplines="0 0 1 1" repeatCount="indefinite"></animate>
+                </path>
+            </svg>
+        </div>
+    {% endif %}
+        {% if date|default(false)  %}
+            <div class="absolute top-2 right-2 rounded-lg bg-secondary-light/[.6] dark:bg-ternary-dark/[.6] px-2 dark:text-white">{{ date }}</div>
+        {% endif %}
+        <div>
+            <img src="{{ image }}" alt="Projet web {{ title }}"
+                 class="rounded-t-xl border-none aspect-[780/680]">
+        </div>
+        <div class="text-center px-4 py-6">
+            <p class="font-general-semibold text-xl text-ternary-dark dark:text-ternary-light font-semibold mb-2">
+                {{ title }}
+            </p>
+            <span class="font-general-medium text-lg text-ternary-dark dark:text-ternary-light">
+                {{ category }}
+            </span>
+        </div>
+    {% if href|default(false)  %}
+    </a>
+    {% endif %}
+</article>

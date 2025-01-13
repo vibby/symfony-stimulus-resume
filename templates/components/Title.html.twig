@@ -7,6 +7,6 @@
 {% elseif level == 4 %}
     {% set class = class ?? 'text-1xl md:text-2xl' %}
 {% endif %}
-<h{{ level }} class="{{ class|default('') }} mb-5 font-general-semibold text-primary-dark dark:text-primary-light">
+<h{{ level }} class="{{ class|default('') }} mb-2 font-general-semibold text-primary-dark dark:text-primary-light">
     {% block content %}{% endblock %}
 </h{{ level }}>
