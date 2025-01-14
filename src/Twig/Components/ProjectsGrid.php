@@ -30,8 +30,8 @@ class ProjectsGrid
     #[LiveProp]
     public int $page = 1;
 
-    #[LiveProp]
-    public string $categorie = '';
+    #[LiveProp(writable: true, onUpdated: 'onTagsUpdated', url: true)]
+    public array $tags = [];
 
     public function __construct(
         private readonly ProjectRepository $projects,
@@ -44,19 +44,42 @@ class ProjectsGrid
         return self::PER_PAGE;
     }
 
+    public function getAvailableTags(): array
+    {
+        return $this->projects->findAvailableTags($this->tags);
+    }
+
     #[LiveAction]
     public function more(): void
     {
         ++$this->page;
     }
 
+    #[LiveAction]
+    public function setTags(array $tags): void
+    {
+        $this->tags = $tags;
+    }
+
     public function hasMore(): bool
     {
-        return $this->projects->count($this->categorie) > ($this->page * self::PER_PAGE);
+        return $this->projects->count($this->tags) > ($this->page * self::PER_PAGE);
     }
 
     public function getProjects(): array
     {
-        return $this->projects->filterPaginated($this->categorie, $this->page, self::PER_PAGE);
+        return $this->projects->filterPaginated($this->tags, $this->page, self::PER_PAGE);
+    }
+
+    public function getFilterId(): string
+    {
+        return dechex(crc32(implode('', $this->tags)));
+    }
+
+    public function onTagsUpdated($previousValue): void
+    {
+        if ($previousValue !== $this->tags) {
+            $this->page = 1;
+        }
     }
 }

@@ -12,11 +12,10 @@ use Symfony\Component\Routing\Attribute\Route;
 class ProjectController extends AbstractController
 {
     #[Route('/projets', name: 'app_projects')]
-    public function index(ProjectRepository $projectRepository): Response
+    public function index(): Response
     {
         return $this->render('page/projects.html.twig', [
             'controller_name' => 'HomeController',
-            'tags' => $projectRepository->findAllTags(),
         ]);
     }
 }

@@ -14,7 +14,7 @@ class ProjectRepository
                 '2007',
                 'http://vibby.beauvivre.fr/laboratoire/neuilly/',
                 'Intégration et Thème Joomla',
-                ['Intégration', 'UX', 'En ligne'],
+                ['Intégration', 'En ligne'],
             ),
             new Project(
                 'mobiles',
@@ -86,7 +86,7 @@ class ProjectRepository
                 '2013',
                 'http://vibby.beauvivre.fr/laboratoire/museo/www/museums.php',
                 'POC très rapide avec administration complète',
-                ['Foundation', 'POC', 'Défi', 'Symfony'],
+                ['Foundation', 'Défi', 'Symfony'],
             ),
             new Project(
                 'flexart',
@@ -129,63 +129,109 @@ class ProjectRepository
                 ['Intégration', 'Design', 'Experimentation'],
             ),
             new Project(
+                'vanao',
+                'Mnesys Vanao',
+                '2017',
+                'https://archives.lille.fr/',
+                'Archives publiques en ligne',
+                ['Intégration', 'Lead dev', 'Cakephp', 'Symfony', 'Backend', 'En ligne', 'Backoffice'],
+            ),
+            new Project(
                 'reunionite',
                 'Réunionïte',
                 '2022',
                 'https://reunionite.beauvivre.fr/',
                 'Jeu 100% frontend',
-                ['Javascript', 'VueJs', 'Design', 'En ligne'],
+                ['Javascript', 'VueJs', 'Design', 'En ligne', 'Lead dev'],
+            ),
+            new Project(
+                'piecesetpneus',
+                'Pièces et pneus',
+                '2020',
+                'https://piecesetpneus.com',
+                'Sylius à forte fréquentation',
+                ['Sylius', 'Backend', 'En ligne', 'API', 'eCommerce', 'Lead dev'],
+            ),
+            new Project(
+                'progicar',
+                'Progicar Remarket',
+                '2022',
+                'https://www.progicar.fr/progicar-remarket',
+                'Gestion d’activité industrielle',
+                ['Symfony', 'DDD', 'API', 'VueJs', 'Backend'],
+            ),
+            new Project(
+                'vimeet365',
+                'Proximum Vimeet365',
+                '2023',
+                'https://365.vimeet.events/',
+                'Réseau social professionnel',
+                ['Symfony', 'DDD', 'API', 'Backend', 'Lead dev'],
             ),
             new Project(
                 'adra',
                 'Adra Nantes',
-                '2024',
+                '2023',
                 'https://adra-nantes.fr/',
                 'Association caritative',
                 ['Wordpress', 'Design', 'En ligne'],
             ),
+            new Project(
+                'dixneuf',
+                'Dixneuf Portail Pro',
+                '2024',
+                'https://www.dixneuf.com/',
+                ' Portail commercial et industriel',
+                ['Symfony', 'Backend', 'En ligne', 'API'],
+            ),
+            new Project(
+                'cooker',
+                'Cooker',
+                '2024',
+                '',
+                'Plateforme no-code par système d’entrée / sortie',
+                ['Symfony', 'VueJs', 'Design', 'DDD', 'Lead dev'],
+            ),
         ];
     }
 
-    public function filter(string $categorie): array
+    private function filter(array $tags): array
     {
         $list = array_filter(
             $this->findAll(),
-            fn(Project $project) => in_array($categorie, $project->tags)
+            function (Project $project) use ($tags): bool {
+                return count(array_intersect($tags, $project->getTags())) === count($tags);
+            }
         );
         usort($list, fn($a, $b) => $a->date < $b->date);
 
         return $list;
     }
 
-    public function filterPaginated(string $categorie, int $page, int $perPage): array
+    public function filterPaginated(array $tags, int $page, int $perPage): array
     {
-        $list = $this->findAll();
-        if ($categorie !== '') {
-            $list = $this->filter($categorie);
-        } else {
-            usort($list, fn($a, $b) => $a->date < $b->date);
-        }
+        $list = $tags !== [] ? $this->filter($tags) : $this->findAll();
+        usort($list, fn($a, $b) => $a->date < $b->date);
 
         return array_slice($list, ($page - 1) * $perPage, $perPage);
     }
 
-    public function findAllTags(): array
+    public function findAvailableTags(array $otherTags): array
     {
-        $list = array_unique(array_reduce(
-            $this->findAll(),
+        $list = array_reduce(
+            $this->filter($otherTags),
             function (array $stack, Project $project) {
-                return array_merge($stack, $project->tags);
+                return array_merge($stack, $project->getTags());
             },
             []
-        ));
+        );
         sort($list);
 
-        return $list;
+        return array_count_values($list);
     }
 
-    public function count(string $categorie = ''): int
+    public function count(array $tags = []): int
     {
-        return count($categorie === '' ? $this->findAll() : $this->filter($categorie));
+        return count($tags === [] ? $this->findAll() : $this->filter($tags));
     }
 }

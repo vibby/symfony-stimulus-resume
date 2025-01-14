@@ -1,49 +1,5 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
-    <div class="pt-10 sm:pt-20 md:pt-24" id="projects">
-        <div class="text-center">
-            <p class="font-general-semibold text-2xl sm:text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light">
-                Portfolio de projets
-            </p>
-        </div>
-        <div class="mt-8 sm:mt-10">
-            <h3 class="font-general-regular text-center text-secondary-dark dark:text-ternary-light text-md sm:text-xl font-normal mb-4">
-                Filtrer les projets par titre ou categorie </h3>
-            <div class="flex justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-2">
-                <div class="flex justify-between gap-2">
-                <span
-                        class="hidden sm:block bg-primary-light dark:bg-ternary-dark p-2.5 shadow-sm rounded-xl cursor-pointer">
-                    <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24" height="24"
-                            viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="feather feather-search text-ternary-dark dark:text-ternary-light">
-                        <circle
-                                cx="11" cy="11"
-                                r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65"
-                              y2="16.65"></line>
-                    </svg>
-                </span>
-                    <input
-                            class="font-general-medium pl-3 pr-1 sm:px-4 py-2 border-1 border-gray-200 dark:border-secondary-dark rounded-lg text-sm sm:text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"
-                            id="name" name="name" type="search" required="" placeholder="Recherche"
-                            aria-label="Name">
-                </div>
-                <select name="projects" id="projects"
-                        class="font-general-medium px-4 py-2 border-1 border-gray-200 dark:border-secondary-dark rounded-lg text-sm sm:text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light">
-                    <option class="text-sm sm:text-md" value="">Tous les projets</option>
-                    {% for tag in tags %}
-                        <option class="sm:text-md" value="{{ tag }}">{{ tag|title }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-        </div>
-    </div>
     <twig:ProjectsGrid />
 {% endblock %}

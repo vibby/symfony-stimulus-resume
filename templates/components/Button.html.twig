@@ -1,6 +1,6 @@
 {% set style = style ?? 'blue' %}
 {% if href|default(false) %}
-<a href="{{ href }}" target="__blank"
+<a href="{{ href }}"
 {% else %}
 <button data-action="{{ action|default('') }}"
         {% endif %}

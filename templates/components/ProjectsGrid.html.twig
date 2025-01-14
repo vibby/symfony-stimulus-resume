@@ -1,28 +1,94 @@
 <div class="ProductGrid" {{ attributes.defaults(stimulus_controller('appear')) }}>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10">
+    <div class="pt-10 sm:pt-20 md:pt-24" id="projects">
+        <div class="text-center">
+            <h1 class="font-general-semibold text-2xl sm:text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light">
+                Portfolio de projets
+            </h1>
+        </div>
+        <div class="mt-8 sm:mt-10">
+            <div class="flex justify-between border-b border-primary-light dark:border-secondary-dark pb-3 gap-4">
+{#                <div class="flex justify-between gap-2">#}
+{#                    <span#}
+{#                            class="hidden sm:block bg-primary-light dark:bg-ternary-dark p-2.5 shadow-sm rounded-xl cursor-pointer">#}
+{#                        <svg#}
+{#                                xmlns="http://www.w3.org/2000/svg"#}
+{#                                width="24" height="24"#}
+{#                                viewBox="0 0 24 24" fill="none"#}
+{#                                stroke="currentColor"#}
+{#                                stroke-width="2"#}
+{#                                stroke-linecap="round"#}
+{#                                stroke-linejoin="round"#}
+{#                                class="feather feather-search text-ternary-dark dark:text-ternary-light">#}
+{#                            <circle#}
+{#                                    cx="11" cy="11"#}
+{#                                    r="8"></circle>#}
+{#                            <line x1="21" y1="21" x2="16.65"#}
+{#                                  y2="16.65"></line>#}
+{#                        </svg>#}
+{#                    </span>#}
+{#                    <input#}
+{#                            class="font-general-medium pl-3 pr-1 sm:px-4 py-2 border-1 border-gray-200 dark:border-secondary-dark rounded-lg text-sm sm:text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light"#}
+{#                            id="name" name="name" type="search" required="" placeholder="Recherche"#}
+{#                            aria-label="Name">#}
+{#                </div>#}
+                <div class="flex gap-2 flex-wrap">
+                    {% if this.tags %}
+                        <a class="text-sm font-medium px-2.5 py-0.5 rounded cursor-pointer border border-2 dark:bg-red-700 dark:border-red-700 bg-red-300 border-red-300"
+                           href="{{ path('app_projects') }}"
+                        >
+                            Tous
+                        </a>
+                    {% endif %}
+                    {% for tag, count in this.availableTags %}
+                        <label  class="text-sm font-medium pl-2.5 pr-1 py-0.5 rounded-full cursor-pointer border border-2 relative
+                            {% if tag in this.tags %}
+                                bg-gradient-to-tl
+{#                                from-amber-600 to-amber-800 text-white#}
+                                from-amber-200 to-amber-400 text-black
+                                dark:from-amber-600 dark:to-amber-800 text-black dark:text-white
+                            {% else %}
+                                hover:bg-amber-200 hover:dark:bg-amber-600
+                            {% endif %}"
+                            style="border-color: #{{ tag|stringToColor }}; "
+                        >
+                            <input type="checkbox" value="{{ tag }}" name="tags" class="sr-only" data-model="tags" {% if (tag in this.tags) %}checked{% endif %} />
+                            {{ tag|title }}
+                            <div class="inline-flex items-center justify-center w-6 h-6 text-xs font-bold dark:text-white bg-white dark:bg-primary-dark rounded-full -top-2 -end-2"
+                            >
+                                {{ count }}
+                            </div>
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10" id="{{ this.getFilterId }}">
         {% if page > 1 %}
-            <article id="item--{{ page - 1 }}-{{ per_page }}"></article>
+            <article id="project--{{ page - 1 }}-{{ per_page }}"></article>
         {% endif %}
         {% for project in this.projects %}
             <twig:CardProject
-                id="item--{{ page }}-{{ loop.index }}"
-                title="{{ project.title }}"
-                date="{{ project.date }}"
-                image="{{ asset('images/project/'~project.id~'.png') }}"
-                href="{{ project.link }}"
-                category="{{ project.shortDesc }}"
+                    index="{{ page }}-{{ loop.index }}"
+                    title="{{ project.title }}"
+                    date="{{ project.date }}"
+                    image="{{ asset('images/project/'~project.id~'.png') }}"
+                    href="{{ project.link }}"
+                    category="{{ project.shortDesc }}"
             />
         {% endfor %}
         {% if this.hasMore %}
             <twig:CardProject
-                id="item--{{ page + 1 }}-1"
-                title="project"
-                image="{{ asset('images/project/empty.svg') }}"
-                category="description"
-                loadMoreTrigger="{{ true }}"
+                    index="{{ page + 1 }}-1"
+                    title="project"
+                    image="{{ asset('images/project/empty.svg') }}"
+                    category="description"
+                    loadMoreTrigger="{{ true }}"
             />
         {% else %}
-            <div class="self-end"><div class="w-12 h-12 bg-secondary-light dark:bg-ternary-dark rounded-xl"></div></div>
+            <div class="self-end">
+                <div class="w-12 h-12 bg-secondary-light dark:bg-ternary-dark rounded-xl"></div>
+            </div>
         {% endif %}
     </div>
 </div>
