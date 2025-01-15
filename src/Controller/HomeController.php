@@ -17,7 +17,7 @@ class HomeController extends AbstractController
         $contactForm = $this->createForm(ContactType::class, null, [
             'action' => $this->generateUrl('app_contact'),
         ]);
-        $projects = $projectRepository->findAll(1, 6);
+        $projects = $projectRepository->filterPaginated([], 1, 6);
 
         return $this->render('page/home.html.twig', [
             'controller_name' => 'HomeController',

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block main %}
+    <twig:BreadcrumbGroup>
+        <twig:BreadcrumbItem href="{{ path('app_articles') }}">
+            Articles
+        </twig:BreadcrumbItem>
+    </twig:BreadcrumbGroup>
+    <twig:Title level="1">
+        {{ article.title }}
+        <small class="text-sm text-gray-500">{{ article.date|date('Y-m-d') }}</small>
+    </twig:Title>
+
+    <div class="article">
+        <img class="lg:float-right lg:max-w-[50%] lg:ml-4 lg:mb-2 rounded-t-lg md:rounded-none md:rounded-s-lg" src="{{ asset('images/article/'~article.slug~'.jpg') }}" alt="" />
+        {{ article.content|raw }}
+    </div>
+{% endblock %}

@@ -18,10 +18,23 @@
                 body {
                     font-family: 'Quicksand', sans-serif;
                 }
-                @layer base {
-                    a {
-                        @apply underline text-blue-600 hover:text-blue-800 visited:text-purple-600
-                    }
+                .article h2 {
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                    padding: 1.4em 0 0 0;
+                }
+                .article h3 {
+                    font-size: 1.6rem;
+                    font-weight: bold;
+                    padding: 1.2em 0 0 0;
+                }
+                .article h4 {
+                    font-size: 1.3rem;
+                    font-weight: bold;
+                    padding: 1em 0 0 0;
+                }
+                .article p {
+                    padding: 1em 0;
                 }
             </style>
         {% endblock %}
@@ -39,10 +52,8 @@
         {% include 'layouts/partials/header.html.twig' %}
         {% include 'layouts/partials/modal_hire.html.twig' %}
         <main>
-            <div class="sm:container mx-4 sm:mx-auto">
+            <div class="sm:container mx-4 sm:mx-auto flex flex-col gap-24">
                 {% block main %}
-                    {% include 'layouts/partials/hero.html.twig' %}
-                    {% include 'layouts/partials/projects.html.twig' %}
                 {% endblock %}
             </div>
         </main>

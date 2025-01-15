@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Développeur web{% endblock %}
+
 {% block main %}
     {% include 'layouts/partials/hero.html.twig' %}
-    <twig:ProjectsGrid />
+    {% include 'layouts/partials/projects.html.twig' %}
 {% endblock %}

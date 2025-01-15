@@ -218,16 +218,23 @@ class ProjectRepository
 
     public function findAvailableTags(array $otherTags): array
     {
-        $list = array_reduce(
+        $list = array_unique(array_reduce(
+            $this->findAll(),
+            function (array $stack, Project $project) {
+                return array_merge($stack, $project->getTags());
+            },
+            []
+        ));
+        sort($list);
+        $used = array_reduce(
             $this->filter($otherTags),
             function (array $stack, Project $project) {
                 return array_merge($stack, $project->getTags());
             },
             []
         );
-        sort($list);
 
-        return array_count_values($list);
+        return array_merge(array_fill_keys($list, 0), array_count_values($used));
     }
 
     public function count(array $tags = []): int

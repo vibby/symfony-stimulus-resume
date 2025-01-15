@@ -1,0 +1,28 @@
+<section class="flex flex-col gap-12">
+    <header class="">
+        <div class="text-center">
+            <h1 class="font-general-semibold text-2xl sm:text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light">
+                Portfolio de projets
+            </h1>
+        </div>
+    </header>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 sm:gap-10">
+        {% for project in projects %}
+            <twig:CardProject
+                    index="{{ loop.index }}"
+                    title="{{ project.title }}"
+                    date="{{ project.date }}"
+                    image="{{ asset('images/project/'~project.id~'.png') }}"
+                    href="{{ project.link }}"
+                    category="{{ project.shortDesc }}"
+            />
+        {% endfor %}
+    </div>
+    <footer>
+        <twig:Button
+                href="{{ path('app_projects') }}"
+        >
+            Plus de projets
+        </twig:Button>
+    </footer>
+</section>

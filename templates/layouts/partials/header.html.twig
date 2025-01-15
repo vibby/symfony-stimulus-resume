@@ -11,14 +11,15 @@
            class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark {% if app.current_route == 'app_resume' %} underline{% endif %}"
            aria-label="Qui suis-je"> Qui suis-je </a>
         <a href="/articles"
-           class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark"
+           class="block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 border-b border-secondary-light dark:border-primary-dark  {% if app.current_route == 'app_articles' or app.current_route == 'app_article'  %} underline{% endif %}"
            aria-label="Articles"> Articles </a>
         <a href="/contact"
            class="block md:hidden lg:block text-primary-dark dark:text-ternary-light hover:text-indigo-500 dark:hover:text-indigo-500 py-2 {% if app.current_route == 'app_contact' %} underline{% endif %}"
            aria-label="Contact"> Contact </a>
     </nav>
     <div class="order-3 font-general-medium sm:block" {{ stimulus_controller('modal-form-hire') }}>
-        <twig:Button label="Embauchez-moi" action="modal-form-hire#openModal"/>
+        <twig:Button label="Embauchez-moi" action="modal-form-hire#openModal" class="hidden lg:flex"/>
+        <twig:Button label="Contact" href="/contact" class="flex lg:hidden"/>
     </div>
     <div {{ stimulus_controller('interface') }} class="order-4 hidden sm:block">
         <twig:ButtonIcon action="interface#toggleDarkMode" class="p-2" label="dark / light mode">

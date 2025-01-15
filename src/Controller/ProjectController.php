@@ -15,7 +15,6 @@ class ProjectController extends AbstractController
     public function index(): Response
     {
         return $this->render('page/projects.html.twig', [
-            'controller_name' => 'HomeController',
         ]);
     }
 }
