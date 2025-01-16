@@ -82,4 +82,9 @@ class GridProjects
             $this->page = 1;
         }
     }
+
+    public function count(): int
+    {
+        return $this->projects->count();
+    }
 }

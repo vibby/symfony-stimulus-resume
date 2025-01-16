@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block main %}
+    <twig:BreadcrumbGroup>
+        <twig:BreadcrumbItem href="{{ path('app_projects') }}">
+            Projets
+        </twig:BreadcrumbItem>
+    </twig:BreadcrumbGroup>
+    <twig:Title level="1">
+        {{ project.title }}
+        <small class="text-sm text-gray-500">{{ project.date }}</small>
+    </twig:Title>
+    <div class="flex gap-4">
+        <div>
+            <img src="{{ asset('images/project/'~project.id~'.png') }}" alt="Projet web {{ project.title }}"
+                 class="rounded-xl border-none aspect-[780/680]">
+        </div>
+        <div class="">
+            <twig:DefGroup>
+                <twig:DefItem title="Date">
+                    {{ project.date }}
+                </twig:DefItem>
+                <twig:DefItem title="Description">
+                    {{ project.shortDesc }}
+                </twig:DefItem>
+                <twig:DefItem title="Tags">
+                    <div class="flex gap-2 flex-wrap">
+                        {% for tag, count in project.tagsAsKeys %}
+                            <a href="{{ path('app_projects', {tags: [tag]}) }}" class="text-sm font-medium py-0.5 px-2.5 rounded-full cursor-pointer border border-2 relative
+                                hover:bg-amber-200 hover:dark:bg-amber-600"
+                                   style="border-color: #{{ tag|stringToColor }}; "
+                            >
+                                {{ tag|title }}
+                            </a>
+                        {% endfor %}
+                    </div>
+                </twig:DefItem>
+                {% if project.clientName %}
+                    <twig:DefItem title="Client">
+                        <twig:Link href="{{ project.clientLink }}">
+                            {{ project.clientName }}
+                        </twig:Link>
+                    </twig:DefItem>
+                {% endif %}
+            </twig:DefGroup>
+            {% if project.link %}
+                <twig:Button href="{{ project.link }}" target="_blank">
+                    Voir le projet
+                </twig:Button>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

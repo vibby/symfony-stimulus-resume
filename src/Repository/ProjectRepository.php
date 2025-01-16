@@ -180,15 +180,17 @@ class ProjectRepository
                 'dixneuf',
                 'Dixneuf Portail Pro',
                 '2024',
-                'https://www.dixneuf.com/',
+                null,
                 ' Portail commercial et industriel',
                 ['Symfony', 'Backend', 'En ligne', 'API'],
+                'Dixneuf',
+                'https://www.dixneuf.com/'
             ),
             new Project(
                 'cooker',
                 'Cooker',
                 '2024',
-                '',
+                null,
                 'Plateforme no-code par système d’entrée / sortie',
                 ['Symfony', 'VueJs', 'Design', 'DDD', 'Lead dev'],
             ),
@@ -240,5 +242,10 @@ class ProjectRepository
     public function count(array $tags = []): int
     {
         return count($tags === [] ? $this->findAll() : $this->filter($tags));
+    }
+
+    public function find(string $id)
+    {
+        return array_values(array_filter($this->findAll(), fn(Project $project) => $project->id === $id))[0] ?? null;
     }
 }
