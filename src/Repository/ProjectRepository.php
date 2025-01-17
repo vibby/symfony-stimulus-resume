@@ -14,7 +14,7 @@ class ProjectRepository
                 '2007',
                 'http://vibby.beauvivre.fr/laboratoire/neuilly/',
                 'Intégration et Thème Joomla',
-                ['Intégration', 'En ligne'],
+                ['Intégration'],
             ),
             new Project(
                 'mobiles',
@@ -30,7 +30,7 @@ class ProjectRepository
                 '2010',
                 'http://vibby.beauvivre.fr/laboratoire/cuisine/',
                 'Site de recettes de cuisine complet',
-                ['Intégration', 'Design', 'En ligne'],
+                ['Intégration', 'Design'],
             ),
             new Project(
                 'parket',
@@ -110,7 +110,7 @@ class ProjectRepository
                 '2014',
                 'http://likert.beauvivre.fr/',
                 'Outil de questionnaire complexe en ligne',
-                ['Intégration', 'Symfony', 'Backend', 'En ligne', 'Backoffice'],
+                ['Intégration', 'Symfony', 'Backend', 'Backoffice'],
             ),
             new Project(
                 'cuisinefacile',
@@ -118,7 +118,7 @@ class ProjectRepository
                 '2015',
                 'http://vibby.beauvivre.fr/laboratoire/cuisine-facile/recette.html',
                 'Site de recettes de cuisine',
-                ['Intégration', 'Design', 'En ligne'],
+                ['Intégration', 'Design'],
             ),
             new Project(
                 'ean',
@@ -134,7 +134,7 @@ class ProjectRepository
                 '2017',
                 'https://archives.lille.fr/',
                 'Archives publiques en ligne',
-                ['Intégration', 'Lead dev', 'Cakephp', 'Symfony', 'Backend', 'En ligne', 'Backoffice'],
+                ['Intégration', 'Lead dev', 'Cakephp', 'Symfony', 'Backend', 'Backoffice'],
             ),
             new Project(
                 'reunionite',
@@ -142,7 +142,7 @@ class ProjectRepository
                 '2022',
                 'https://reunionite.beauvivre.fr/',
                 'Jeu 100% frontend',
-                ['Javascript', 'VueJs', 'Design', 'En ligne', 'Lead dev'],
+                ['Javascript', 'VueJs', 'Design', 'Lead dev'],
             ),
             new Project(
                 'piecesetpneus',
@@ -150,7 +150,7 @@ class ProjectRepository
                 '2020',
                 'https://piecesetpneus.com',
                 'Sylius à forte fréquentation',
-                ['Sylius', 'Backend', 'En ligne', 'API', 'eCommerce', 'Lead dev'],
+                ['Sylius', 'Backend', 'API', 'eCommerce', 'Lead dev'],
             ),
             new Project(
                 'progicar',
@@ -174,7 +174,7 @@ class ProjectRepository
                 '2023',
                 'https://adra-nantes.fr/',
                 'Association caritative',
-                ['Wordpress', 'Design', 'En ligne'],
+                ['Wordpress', 'Design'],
             ),
             new Project(
                 'dixneuf',
@@ -182,7 +182,7 @@ class ProjectRepository
                 '2024',
                 null,
                 ' Portail commercial et industriel',
-                ['Symfony', 'Backend', 'En ligne', 'API'],
+                ['Symfony', 'Backend', 'API'],
                 'Dixneuf',
                 'https://www.dixneuf.com/'
             ),
@@ -193,6 +193,15 @@ class ProjectRepository
                 null,
                 'Plateforme no-code par système d’entrée / sortie',
                 ['Symfony', 'VueJs', 'Design', 'DDD', 'Lead dev'],
+                context: <<<HTML
+<ul>
+    <li>Projet en autonomie totale</li>
+    <li>Objectif : automatisation de tâches récurrentes</li>
+    <li>Système de connecteurs pour ajouter des services en ligne</li>
+    <li>Connecteurs vers les API de Jira, Float, Google sheets, Mattermost, Clockify</li>
+</ul>
+HTML
+
             ),
         ];
     }

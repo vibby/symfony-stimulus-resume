@@ -12,10 +12,12 @@
         {{ project.title }}
         <small class="text-sm text-gray-500">{{ project.date }}</small>
     </twig:Title>
-    <div class="flex gap-4">
+    <div class="flex gap-4 flex-col md:flex-row">
         <div>
-            <img src="{{ asset('images/project/'~project.id~'.png') }}" alt="Projet web {{ project.title }}"
-                 class="rounded-xl border-none aspect-[780/680]">
+            <img src="{{ asset('images/project/'~project.id~'.png') }}"
+                 alt="Projet web {{ project.title }}"
+                 class="rounded-xl border border-4 border-white aspect-[780/680]"
+            />
         </div>
         <div class="">
             <twig:DefGroup>
@@ -42,6 +44,11 @@
                         <twig:Link href="{{ project.clientLink }}">
                             {{ project.clientName }}
                         </twig:Link>
+                    </twig:DefItem>
+                {% endif %}
+                {% if project.context %}
+                    <twig:DefItem title="Contexte" class="article">
+                        {{ project.context|raw }}
                     </twig:DefItem>
                 {% endif %}
             </twig:DefGroup>

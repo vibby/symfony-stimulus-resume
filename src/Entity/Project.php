@@ -13,6 +13,7 @@ class Project
         public array $tags,
         public ?string $clientName = null,
         public ?string $clientLink = null,
+        public ?string $context = null,
     ){
     }
 

@@ -1,0 +1,29 @@
+<section class="flex flex-col gap-12">
+    <header class="">
+        <div class="text-center">
+            <h1 class="font-general-semibold text-2xl sm:text-5xl font-semibold mb-2 text-ternary-dark dark:text-ternary-light">
+                Depuis le blog
+            </h1>
+        </div>
+    </header>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        {% for article in articles %}
+            <twig:CardArticle
+                    index="{{ loop.index }}"
+                    slug="{{ article.slug }}"
+                    title="{{ article.title }}"
+                    date="{{ article.date }}"
+                    image="{{ asset('images/article/'~article.slug~'.jpg') }}"
+                    href="{{ path('app_article', {slug: article.slug}) }}"
+                    intro="{{ article.intro }}"
+            />
+        {% endfor %}
+    </div>
+    <footer>
+        <twig:Button
+                href="{{ path('app_articles') }}"
+        >
+            Voir le blog
+        </twig:Button>
+    </footer>
+</section>
