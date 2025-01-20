@@ -13,11 +13,13 @@
         <small class="text-sm text-gray-500">{{ project.date }}</small>
     </twig:Title>
     <div class="flex gap-4 flex-col md:flex-row">
-        <div>
-            <img src="{{ asset('images/project/'~project.id~'.png') }}"
-                 alt="Projet web {{ project.title }}"
-                 class="rounded-xl border border-4 border-white aspect-[780/680]"
-            />
+        <div class="rounded-xl bg-black overflow-hidden p-2 ">
+            <div class="rounded-md border border-4 border-indigo-500 overflow-hidden">
+                <img src="{{ asset('images/project/'~project.id~'.png') }}"
+                     alt="Projet web {{ project.title }}"
+                     class="aspect-[780/680]"
+                />
+            </div>
         </div>
         <div class="">
             <twig:DefGroup>
