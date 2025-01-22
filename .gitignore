@@ -24,4 +24,4 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 
-/storage/
+/storage/contacts.csv

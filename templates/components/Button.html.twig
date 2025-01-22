@@ -1,16 +1,21 @@
 {% set style = style ?? 'blue' %}
 {% if href|default(false) %}
-<a href="{{ href }}" target="{{ target|default('') }}"
+    <a href="{{ href }}" target="{{ target|default('') }}"
 {% else %}
-<button data-action="{{ action|default('') }}"
-        {% endif %}
+    <button
+{% endif %}
         {% if style == 'white' %}
             class="{{ class|default('') }} flex justify-center items-center px-4 sm:mb-0 text-lg border border-indigo-200 dark:border-ternary-dark py-2.5 sm:py-3 shadow-lg rounded-lg bg-indigo-50 focus:ring-1 focus:ring-indigo-900 hover:bg-indigo-500 text-gray-500 hover:text-white duration-500"
         {% endif %}
         {% if style == 'blue' %}
             class="{{ class|default('') }} text-md bg-indigo-500 hover:bg-indigo-600 text-white shadow-sm rounded-md px-5 py-2.5"
         {% endif %}
-        data-action="{{ action|default('') }}"
+        {% if action|default(false) %}
+            data-action="{{ action }}"
+        {% endif %}
+        {% if submit|default(false) %}
+            type="submit"
+        {% endif %}
 >
     {% block content %}{{ label|default('') }}{% endblock %}
 {% if href|default(false) %}

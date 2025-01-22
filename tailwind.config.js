@@ -7,6 +7,9 @@ export default {
         "./assets/**/*.js",
         "./templates/**/*.html.twig",
     ],
+    safelist: [
+        'dark:bg-black',
+    ],
     darkMode: "class",
     theme: {
         extend: {

@@ -1,0 +1,9 @@
+{% use 'tailwind_2_layout.html.twig' %}
+
+{%- block widget_attributes -%}
+    id="{{ id }}" name="{{ full_name }}"
+    {%- if disabled %} disabled="disabled"{% endif -%}
+    {%- if required %} required="required"{% endif -%}
+    {%  set attr = attr|merge({'class': attr.class|default('')~' w-full px-5 py-2 border-1 border-gray-200 dark:border-secondary-dark rounded-md text-md bg-secondary-light dark:bg-ternary-dark text-primary-dark dark:text-ternary-light dark:bg-black'}) %}
+    {{ block('attributes') }}
+{%- endblock widget_attributes -%}

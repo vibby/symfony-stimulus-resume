@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-class Project
+class Project implements \JsonSerializable
 {
+    use JsonDeserializable;
+
     public function __construct(
         public string $id,
         public string $title,
