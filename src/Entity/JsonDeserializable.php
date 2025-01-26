@@ -12,6 +12,11 @@ trait JsonDeserializable{
         $className = get_called_class();
         if (is_string($json)) {
             $json = json_decode($json, true);
+            foreach ($json as $key => $value) {
+                if (is_array($value) && array_keys($value) === ['date', 'timezone_type', 'timezone']) {
+                    $json[$key] = new \DateTime($value['date'], new \DateTimeZone($value['timezone']));
+                }
+            }
         }
         $classInstance = new $className(...$json);
 

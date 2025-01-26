@@ -10,8 +10,11 @@ use Symfony\Component\Routing\Attribute\Route;
 class ArticleController extends AbstractController
 {
     #[Route('/articles', name: 'app_articles')]
-    public function index(): Response
+    public function index(ArticleRepository $articleRepository): Response
     {
+        foreach ($articleRepository->findAll() as $article) {
+            $articleRepository->save($article);
+        }
         return $this->render('page/articles.html.twig', [
         ]);
     }

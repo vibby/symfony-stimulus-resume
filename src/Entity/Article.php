@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
-class Article
+class Article implements \JsonSerializable
 {
+    use JsonDeserializable;
+
     public function __construct(
         public string $slug,
         public string $title,
