@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit {{ article.title }}{% endblock %}
+
+{% block main %}
+    <twig:BreadcrumbGroup>
+        <twig:BreadcrumbItem href="{{ path('app_articles') }}">
+            Projets
+        </twig:BreadcrumbItem>
+    </twig:BreadcrumbGroup>
+    <twig:Title level="1">
+        {{ article.title }}
+        <small class="text-sm text-gray-500">{{ article.date|date('Y-m-d') }}</small>
+    </twig:Title>
+    <div class="flex gap-4 flex-col md:flex-row">
+            <div class="">
+            {{ form_start(form) }}
+                {{ form_rest(form) }}
+                <twig:Button submit="true">Enregistrer</twig:Button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
